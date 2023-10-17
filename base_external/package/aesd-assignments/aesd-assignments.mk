@@ -19,12 +19,16 @@ define AESD_ASSIGNMENTS_BUILD_CMDS
 endef
 
 define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
-	$(INSTALL) -d -m 0755 $(TARGET_DIR)/etc/finder-app/conf/ $(TARGET_DIR)/etc/init.d/
+	$(INSTALL) -d 0755 $(@D)/conf/ $(TARGET_DIR)/etc/finder-app/conf/
 	$(INSTALL) -m 0755 $(@D)/conf/* $(TARGET_DIR)/etc/finder-app/conf/
 	$(INSTALL) -m 0755 $(@D)/assignment-autotest/test/assignment4/* $(TARGET_DIR)/bin
-	$(INSTALL) -m 0755 $(@D)/finder-app/writer $(@D)/finder-app/finder.sh $(@D)/finder-app/finder-test.sh \
-	$(@D)/server/aesdsocket -t $(TARGET_DIR)/usr/bin/ 
-	$(INSTALL) -m 0755 $(@D)/server/aesdsocket-start-stop.sh -T $(TARGET_DIR)/etc/init.d/S99aesdsocket
+
+	$(INSTALL) -m 0755 $(@D)/finder-app/writer.sh $(TARGET_DIR)/usr/bin
+	$(INSTALL) -m 0755 $(@D)/finder-app/finder.sh $(TARGET_DIR)/usr/bin
+	$(INSTALL) -m 0755 $(@D)/finder-app/finder-test.sh $(TARGET_DIR)/usr/bin
+
+	$(INSTALL) -m 0755 $(@D)/server/aesdsocket-start-stop.sh $(TARGET_DIR)/etc/init.d/S99aesdsocket
+	$(INSTALL) -m 0755 $(@D)/server/aesdsocket $(TARGET_DIR)/usr/bin
 endef
 
 $(eval $(generic-package))
