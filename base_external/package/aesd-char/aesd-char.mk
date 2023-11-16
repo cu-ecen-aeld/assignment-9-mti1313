@@ -5,7 +5,7 @@
 ###############################################################
 
 
-AESD_CHAR_VERSION = c3adab45d28a3a9cd3206817ec78671e36f7dbe7
+AESD_CHAR_VERSION = c244e4bf833f976ae39d4a57e10f87df9cbe733d
 
 AESD_CHAR_SITE = git@github.com:cu-ecen-aeld/assignments-3-and-later-mti1313.git
 
